@@ -1,1 +1,5 @@
-// TODO: implement
+debugger;
+
+Taco.Tasks.on('add', function(model) {
+  debugger;
+});
