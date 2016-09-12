@@ -9,7 +9,6 @@
         "move-new-tasks-to-end-of-queue.js"
       ],
       "matches": [
-        "chrome://newtab",
         "https://tacoapp.com/tasks"
       ],
       "run_at": "document_end"
