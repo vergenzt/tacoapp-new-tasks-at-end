@@ -1,17 +1,18 @@
 {
   "manifest_version": 2,
-  "name": "TacoApp: new tasks at end of queue",
-  "description": "Move new tasks to the end of the queue by default.",
-  "version": "0.1",
+  "name": "TacoApp Tweaks",
+  "description": "Custom tweaks to TacoApp's frontend.",
+  "version": "0.2",
   "content_scripts": [
     {
-      "js": [
-        "move-new-tasks-to-end-of-queue.js"
-      ],
+      "js": ["index.js"],
       "matches": [
         "https://tacoapp.com/tasks"
       ],
       "run_at": "document_idle"
     }
+  ],
+  "web_accessible_resources": [
+    "move-new-tasks-to-end-of-queue.js"
   ]
 }
