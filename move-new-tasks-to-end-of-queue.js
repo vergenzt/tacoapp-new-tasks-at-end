@@ -1,4 +1,5 @@
-(function() {
+$(function() {
+
   // override default frontend ordering
   $.extend(Taco.Collections.Tasks.prototype, {
     comparator: function(task) {
@@ -12,7 +13,9 @@
       if (settings.url.match(/\/reorder.json$/)) {
         data = $.deparam(settings.data);
         data.lists.forEach(function(list) {
-          list.board_task_ids.reverse();
+          if (list.board_task_ids) {
+            list.board_task_ids.reverse();
+          }
         });
         settings.data = $.param(data);
       }
@@ -23,6 +26,7 @@
   $.extend(Taco.Views.TasksIndex.prototype, {
     // override to append instead of prepend
     addOne: function(task) {
+      debugger;
       if (task.get('current') == this.options.current) {
         this.appendOne(task);
       }
@@ -34,4 +38,8 @@
       $(element.el).hide().appendTo(this.$el).slideDown(400);
     }
   });
-})();
+
+  var ti = Taco.Views.TasksIndex;
+  ti.stopListening.call(ti, ti.collection, 'add')
+  ti.listenTo.call(ti, ti.collection, 'add', ti.addOne);
+});

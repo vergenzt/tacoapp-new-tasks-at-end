@@ -3,6 +3,8 @@ var scriptUrls = [
   chrome.extension.getURL('move-new-tasks-to-end-of-queue.js')
 ];
 
+debugger;
+
 scriptUrls.forEach(function(scriptUrl) {
   var script = document.createElement('script');
   script.src = scriptUrl;

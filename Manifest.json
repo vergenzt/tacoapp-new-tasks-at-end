@@ -5,11 +5,11 @@
   "version": "0.2",
   "content_scripts": [
     {
-      "js": ["index.js"],
+      "js": ["jquery-3.3.1.min.js", "index.js", "jquery-deparam-05018fe327c3675250f91f6ead6e83ef90dab1d0.min.js"],
       "matches": [
         "https://tacoapp.com/tasks"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
