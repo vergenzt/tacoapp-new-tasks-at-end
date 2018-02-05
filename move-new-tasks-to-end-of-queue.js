@@ -12,7 +12,9 @@
       if (settings.url.match(/\/reorder.json$/)) {
         data = $.deparam(settings.data);
         data.lists.forEach(function(list) {
-          list.board_task_ids.reverse();
+          if (list.board_task_ids) {
+            list.board_task_ids.reverse();
+          }
         });
         settings.data = $.param(data);
       }
